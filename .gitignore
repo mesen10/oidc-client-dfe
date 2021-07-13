@@ -1,0 +1,4 @@
+/node_modules/
+/config/development.config.js
+/.idea/
+/.node-persist/

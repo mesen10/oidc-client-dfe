@@ -1,0 +1,23 @@
+{
+  "name": "oidc-client-dfe",
+  "version": "1.0.0",
+  "description": "Sample OIDC client for DfE",
+  "main": "index.js",
+  "author": "Mert Esen",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "jwt-decode": "^3.1.2",
+    "node-persist": "^3.1.0",
+    "request": "^2.88.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "prettier": "2.3.2"
+  }
+}
