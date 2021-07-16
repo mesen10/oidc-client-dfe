@@ -11,7 +11,7 @@ const config = {
   PUBLIC_API: {
     URL: "https://test-api.signin.education.gov.uk",
     PATH_USER_ACCESS:
-      "/services/{service-id}/organisations/:organisationId/users/:userId",
+      "/services/:serviceId/organisations/:organisationId/users/:userId",
     PATH_USER_ORGANISATIONS: "/users/:userId/organisations",
     TOKEN: "XXX",
   },

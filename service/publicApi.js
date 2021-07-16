@@ -4,7 +4,7 @@ const axios = require("axios");
 const config = require("../config/config");
 const { getToken } = require("./storage");
 
-const getUserOrganisations = async () => {
+const getUserAccessToService = async () => {
   const token = await getToken();
 
   if (token) {
@@ -15,18 +15,53 @@ const getUserOrganisations = async () => {
       organisation: { id: organisationId },
     } = decodedJwt;
 
-    let url = config.PUBLIC_API.URL + config.PUBLIC_API.PATH_USER_ORGANISATIONS;
-    url = url.replace(":userId", sub);
+    let url = config.PUBLIC_API.URL + config.PUBLIC_API.PATH_USER_ACCESS;
+    url = url.replace(":userId", sub)
+        .replace(":serviceId", config.CLIENT_ID)
+        .replace(":organisationId", organisationId);
 
-    const response = await axios({
-      url: url,
-      headers: {
-        Authorization: "bearer " + config.PUBLIC_API.TOKEN,
-      },
-    });
-    // console.log(response.data);
-    return response.data;
+    try {
+      const response = await axios({
+        url: url,
+        headers: {
+          Authorization: "bearer " + config.PUBLIC_API.TOKEN,
+        },
+      });
+
+      // console.log(response.data);
+      return response.data;
+    } catch (e) {
+      console.error("Error", e)
+    }
   }
 };
 
-module.exports = { getUserOrganisations };
+const getUserOrganisations = async () => {
+  const token = await getToken();
+
+  if (token) {
+    const parsedToken = JSON.parse(token);
+    const decodedJwt = jwt_decode(parsedToken.id_token);
+    const {
+      sub,
+    } = decodedJwt;
+
+    let url = config.PUBLIC_API.URL + config.PUBLIC_API.PATH_USER_ORGANISATIONS;
+    url = url.replace(":userId", sub);
+
+    try {
+      const response = await axios({
+        url: url,
+        headers: {
+          Authorization: "bearer " + config.PUBLIC_API.TOKEN,
+        },
+      });
+      // console.log(response.data);
+      return response.data;
+    } catch (e) {
+      console.error("Error", e)
+    }
+  }
+};
+
+module.exports = { getUserAccessToService, getUserOrganisations };
