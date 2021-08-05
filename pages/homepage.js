@@ -3,7 +3,6 @@ const { v4 } = require("uuid");
 const jwt_decode = require("jwt-decode");
 const config = require("../config/config");
 const { getToken } = require("../service/storage");
-const { getUserOrganisations } = require("../service/publicApi");
 
 const homePage = async (req, res) => {
   const token = await getToken();
@@ -35,7 +34,8 @@ const homePage = async (req, res) => {
     res.send(`
       <div style="margin: 30px 20px;">
         <h1>Hello ${decodedJwt.given_name} ${decodedJwt.family_name}</h1>
-        <a href="/clear">Clear token</a>
+        <a href="/clear">Clear token</a> |
+        <a href="/logout">Log out</a>
         <pre>token: ${JSON.stringify(parsedToken, undefined, 2)}</pre>
         <br>
         <ul>

@@ -15,11 +15,7 @@ const userAccessToService = async (req, res) => {
       <div style="margin: 30px 20px;">
         <a href="/">Back</a>
         <h3>/services/:serviceId/organisations/:organisationId/users/:userId</h3>
-        <pre>Response: ${JSON.stringify(
-          userOrgResponse,
-          undefined,
-          2
-        )}</pre>
+        <pre>Response: ${JSON.stringify(userOrgResponse, undefined, 2)}</pre>
       </div>
     `);
     // return;

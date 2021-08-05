@@ -16,9 +16,10 @@ const getUserAccessToService = async () => {
     } = decodedJwt;
 
     let url = config.PUBLIC_API.URL + config.PUBLIC_API.PATH_USER_ACCESS;
-    url = url.replace(":userId", sub)
-        .replace(":serviceId", config.CLIENT_ID)
-        .replace(":organisationId", organisationId);
+    url = url
+      .replace(":userId", sub)
+      .replace(":serviceId", config.CLIENT_ID)
+      .replace(":organisationId", organisationId);
 
     try {
       const response = await axios({
@@ -31,7 +32,7 @@ const getUserAccessToService = async () => {
       // console.log(response.data);
       return response.data;
     } catch (e) {
-      console.error("Error", e)
+      console.error("Error", e);
     }
   }
 };
@@ -42,9 +43,7 @@ const getUserOrganisations = async () => {
   if (token) {
     const parsedToken = JSON.parse(token);
     const decodedJwt = jwt_decode(parsedToken.id_token);
-    const {
-      sub,
-    } = decodedJwt;
+    const { sub } = decodedJwt;
 
     let url = config.PUBLIC_API.URL + config.PUBLIC_API.PATH_USER_ORGANISATIONS;
     url = url.replace(":userId", sub);
@@ -59,7 +58,7 @@ const getUserOrganisations = async () => {
       // console.log(response.data);
       return response.data;
     } catch (e) {
-      console.error("Error", e)
+      console.error("Error", e);
     }
   }
 };

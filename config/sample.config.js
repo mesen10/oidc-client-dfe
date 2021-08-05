@@ -4,6 +4,7 @@ const config = {
   CLIENT_ID: "XXX",
   CLIENT_SECRET: "XXX",
   OIDC: {
+    LOGOUT: "/session/end",
     URL: "https://test-oidc.signin.education.gov.uk",
     PATH_AUTH: "/auth",
     PATH_TOKEN: "/token",
