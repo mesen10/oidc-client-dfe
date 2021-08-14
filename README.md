@@ -6,7 +6,7 @@ Sample OIDC client for DfE
 
 ```bash
 git clone https://github.com/mesen10/oidc-client-dfe
-cd oidc-dfe-client
+cd oidc-client-dfe
 ```
 2. Second, install all the dependencies:
 
