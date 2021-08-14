@@ -28,14 +28,14 @@ yarn dev
 npm run dev
 ```
 
-And open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the code by modifying the files. The server auto-updates the changes as you edit the file.
 
 5. Create a new logically-named branch. For example:
 
 ```bash
-git checkout -b user-roles-enhancements
+git checkout -b user-role-enhancements
 ```
 
 6. Push your changes to GitHub and create a PR against the master branch, linking the PR to any relevant issues.
